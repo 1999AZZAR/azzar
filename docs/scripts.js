@@ -63,13 +63,15 @@ function displayProjects(projects) {
         const iconClass = 'fas fa-bars-staggered';
         projectCard.innerHTML = `
             <h3><a href="${repo.html_url}" target="_blank"><i class="${iconClass}"></i> ${repo.name}</a></h3>
-            <p>${repo.description || 'No description available'}</p>
-            <ul>
-                <li><i class="fas fa-calendar-alt"></i> Updated on: ${new Date(repo.updated_at).toLocaleDateString()}</li>
-                <li><i class="fas fa-code-branch"></i> Forks: ${repo.forks_count}</li>
-                <li><i class="fas fa-star"></i> Stars: ${repo.stargazers_count}</li>
-                ${repo.homepage ? `<li><i class="fas fa-globe"></i> <a href="${repo.homepage}" target="_blank">Website</a></li>` : ''}
-            </ul>
+            <div class="service-card">
+                <p>${repo.description || 'No description available yet'}</p>
+                <ul>
+                    <li><i class="fas fa-calendar-alt"></i> Updated on: ${new Date(repo.updated_at).toLocaleDateString()}</li>
+                    <li><i class="fas fa-code-branch"></i> Forks: ${repo.forks_count}</li>
+                    <li><i class="fas fa-star"></i> Stars: ${repo.stargazers_count}</li>
+                </ul>
+            </div>
+                ${repo.homepage ? `<div class="service-card"> <i class="fas fa-globe"></i> <a href="${repo.homepage}" target="_blank">Website</a></div>` : ''}
         `;
         projectsContainer.appendChild(projectCard);
     });

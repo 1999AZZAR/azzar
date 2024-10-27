@@ -353,6 +353,18 @@ section.active {
     text-align: justify;
 }
 
+/* nested */
+.service-card > .service-card:not(.service-card .service-card .service-card) {
+    background: var(--nonary-color);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    text-align: justify;
+}
+
+
 .service-card:hover {
     transform: translateY(-5px) scale(1.015);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
