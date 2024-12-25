@@ -38,7 +38,7 @@ async function fetchAndSortProjects() {
 
     // Initialize Fuse.js after sorting the projects
     fuse = new Fuse(sortedProjects, {
-        keys: ['name', 'description'],
+        keys: ['name', 'description', 'topics'], // Include topics as a searchable key
         threshold: 0.4,
         shouldSort: true
     });
@@ -61,17 +61,24 @@ function displayProjects(projects) {
         const projectCard = document.createElement('div');
         projectCard.classList.add('service-card');
         const iconClass = 'fas fa-bars-staggered';
+
+        // Limit topics to max 3, add "..." if more
+        let topics = repo.topics && repo.topics.length > 0
+            ? repo.topics.slice(0, 3).join(', ') + (repo.topics.length > 3 ? ', ....' : '')
+            : 'No topics available';
+
         projectCard.innerHTML = `
             <h3><a href="${repo.html_url}" target="_blank"><i class="${iconClass}"></i> ${repo.name}</a></h3>
             <div class="service-card">
                 <p>${repo.description || 'No description available yet'}</p>
                 <ul>
+                    <li><i class="fas fa-tag"></i> Topics: ${topics}</li>
                     <li><i class="fas fa-calendar-alt"></i> Updated on: ${new Date(repo.updated_at).toLocaleDateString()}</li>
                     <li><i class="fas fa-code-branch"></i> Forks: ${repo.forks_count}</li>
                     <li><i class="fas fa-star"></i> Stars: ${repo.stargazers_count}</li>
                 </ul>
             </div>
-                ${repo.homepage ? `<div class="service-card"> <i class="fas fa-globe"></i> <a href="${repo.homepage}" target="_blank">Website</a></div>` : ''}
+            ${repo.homepage ? `<div class="service-card"> <i class="fas fa-globe"></i> <a href="${repo.homepage}" target="_blank">Website</a></div>` : ''}
         `;
         projectsContainer.appendChild(projectCard);
     });

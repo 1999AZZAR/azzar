@@ -184,6 +184,7 @@ header .logo h1 {
 
 header .logo p {
     margin: 0;
+    margin-bottom: 0.5rem;
     font-size: 1.2rem;
     animation: fadeInUp 0.8s ease-out 0.2s;
     opacity: 0;
@@ -292,7 +293,8 @@ section.active {
 .box-container {
     padding: 2rem;
     max-width: 85vw;
-    margin: 60px auto;
+    margin: auto;
+    margin-top: 5rem;
     background: var(--denary-color);
     box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
@@ -830,6 +832,42 @@ div#skills {
     opacity: 0;
 }
 
+.skills-container {
+    display: inline-flex;
+    align-items: center;
+    min-width: 200px;
+    height: 24px;
+    overflow: hidden;
+    position: relative;
+    color: var(--quaternary-color);
+}
+
+.skills-wrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+    transition: opacity 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    flex-direction: column-reverse;
+    margin: auto;
+}
+
+.skill-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    color: var(--tertiary-color);
+    font-weight: 500;
+}
+
+.skill-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill-text.inactive {
+    opacity: 0;
+    transform: translateY(-20px);
+}
 
 /* Media Queries */
 @media (max-width: 640px) {
@@ -913,7 +951,8 @@ div#skills {
     .box-container {
         padding: 1rem;
         max-width: 95vw;
-        margin: 0 auto;
+        margin: auto;
+        margin-top: 2rem;
     }
 
     .box-container h2 {

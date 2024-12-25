@@ -10,13 +10,10 @@
     <meta name="description" content="Azzar Budiyanto is a self-assured Programmer with expertise in IoT, Web development, and Microcontroller. He has more than 4 years of experience and has worked as a freelancer, photographer, student ambassador, and TIM Tutor.">
 
     <!-- Keywords -->
-    <meta name="keywords" content="academy,administrative issues,Arabic,Arduino,Azzar Budiyanto,azzar,Budiyanto,back-end development,C,C#,C++,camera angles,Canva,CICIL,cloud computing,code review,consulting services,coding,connectable devices,continuous improvement,css,data analysis,data visualization,digital editing,digital projects,electrical engineering,embedded systems,Enhancement,English,freelance,freelance work,front-end development,full-stack developer,Functionality,GitHub,high-quality images,HTML,improvement plans,Indobot,Indobot Academy,Indonesian,Internet of Things,IoT,iot systems,JavaScript,Javanese,Junior high school,language,Learning progress,lighting equipment,marketing,material preparation,Microsoft Office,microcontroller,Milestones,open source,personal,Photography,plugins,preparation,Programmer,programming,props,project goals,project management,Publication,Python,Religion,Reports,science,senior high school,skills,software engineering,student ambassador,subject position,technical support,Technical support,technical writing,technical writing and documentation,TIM Tutor,Tracking,trainer,UI/UX design,UX design,Web development,website development,Web pages">
+    <meta name="keywords" content="academy,administrative issues,Arabic,Arduino,Azzar Budiyanto,azzar,Budiyanto,back-end development,C,C#,C++,camera angles,Canva,CICIL,cloud computing,code review,consulting services,coding,connectable devices,continuous improvement,css,data analysis,data visualization,digital editing,digital projects,electrical engineering,embedded systems,Enhancement,English,freelance,freelance work,front-end development,full-stack developer,Functionality,GitHub,high-quality images,HTML,improvement plans,Indobot,Indobot Academy,Indonesian,Internet of Things,IoT,iot systems,JavaScript,Javanese,Junior high school,language,Learning progress,lighting equipment,marketing,material preparation,Microsoft Office,microcontroller,Milestones,open source,personal,Photography,plugins,preparation,Programmer,programming,props,project goals,project management,Publication,Python,Religion,Reports,science,senior high school,skills,software engineering,student ambassador,subject position,technical support,Technical support,technical writing,technical writing and documentation,TIM Tutor,Tracking,trainer,UI/UX design,UX design,Web development,website development,Web pages,Backend,Frontend,Fullstack">
 
     <!-- Author -->
     <meta name="author" content="Azzar Budiyanto">
-
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="SiNn99DHnPNoU7vF67ekOTnqG60XhgdTz_z8d-b9u1g" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Azzar Budiyanto | Freelance Engineer & Developer">
@@ -68,7 +65,12 @@
         <div class="container">
             <div class="logo">
                 <h1>azzar budiyanto</h1>
-                <p id="home-description">Freelance engineer from Yogyakarta, ID: IoT, Web, Microcontrollers.</p>
+                <p id="home-description">
+                    Freelance engineer from Yogyakarta, ID.
+                </p>
+                <span class="skills-container" id="home-description">
+                    <div class="skills-wrapper" id="skills-wrapper"></div>
+                </span>
                 <nav id="nav-menu">
                     <ul>
                         <li><a href="#home" aria-label="Home" title="Home"><i class="fas fa-home"></i></a></li>
@@ -429,6 +431,105 @@
     <button id="backToTopBtn" title="Go to top">
         <img src="https://raw.githubusercontent.com/1999AZZAR/1999AZZAR/readme/resources/logo.png" alt="Back to Top" />
     </button>
+
+    <script>
+        // Array of skills
+        const skills = [
+            // Core Software Development
+            "Programming", "Python", "C++", "C#", "Rust", "TypeScript", "JavaScript",
+            "HTML", "CSS", "Git", "Version Control",
+
+            // Web Technologies
+            "Web", "Full-stack", "Backend", "React.js", "Vue.js", "Angular",
+            "Tailwind CSS", "Bootstrap", "Flask", "Django", "GraphQL",
+
+            // Infrastructure & DevOps
+            "DevOps", "Docker", "Kubernetes", "Linux", "Cloud Computing",
+            "AWS", "Azure", "Firebase", "Cloud Services",
+
+            // Data & AI
+            "Machine Learning", "AI", "Data Science", "Deep Learning",
+            "TensorFlow", "Computer Vision", "Natural Language Processing",
+            "Big Data", "Hadoop", "Spark", "Voice Recognition",
+
+            // IoT & Embedded
+            "IoT", "Microcontrollers", "Embedded Systems", "Arduino",
+            "Raspberry Pi", "Electronics", "Computer Hardware",
+
+            // Database & Security
+            "Database Management", "SQL", "NoSQL", "Cybersecurity",
+            "Networking", "API Design",
+
+            // Engineering & Design
+            "Robotics", "Control Systems", "UI/UX Design", "3D Printing",
+            "CAD Design", "Figma", "Prototyping", "Photography",
+
+            // Project Management & Soft Skills
+            "Project Manager", "Technical Writing", "Agile Methodologies",
+            "SCRUM", "Leadership", "Team Management", "Creative Thinking",
+            "Problem Solving", "Critical Thinking",
+
+            // Sustainable Tech
+            "Sustainability", "Renewable Energy", "Solar Panels",
+            "Power Management", "HVAC Systems", "Electric Vehicles",
+            "Smart Cities"
+        ];
+
+        class SkillsRotator {
+            constructor(containerId, skills) {
+                this.container = document.getElementById(containerId);
+                this.skills = skills;
+                this.currentElement = null;
+                this.nextElement = null;
+            }
+
+            getRandomSkills(count = 3) {
+                const shuffled = [...this.skills].sort(() => 0.5 - Math.random());
+                return shuffled.slice(0, count);
+            }
+
+            createSkillElement(skills) {
+                const div = document.createElement('div');
+                div.className = 'skill-text';
+                div.textContent = skills.join(' • ');
+                return div;
+            }
+
+            async rotate() {
+                // Remove old inactive element
+                if (this.currentElement?.classList.contains('inactive')) {
+                    this.container.removeChild(this.currentElement);
+                }
+
+                // Move current to inactive
+                if (this.nextElement) {
+                    this.currentElement = this.nextElement;
+                    this.currentElement.classList.remove('active');
+                    this.currentElement.classList.add('inactive');
+                }
+
+                // Create and show new element
+                const randomSkills = this.getRandomSkills();
+                this.nextElement = this.createSkillElement(randomSkills);
+                this.container.appendChild(this.nextElement);
+
+                // Trigger reflow
+                void this.nextElement.offsetWidth;
+
+                // Activate new element
+                this.nextElement.classList.add('active');
+            }
+
+            start(interval = 3000) {
+                this.rotate();
+                setInterval(() => this.rotate(), interval);
+            }
+        }
+
+        // Initialize and start the rotator
+        const rotator = new SkillsRotator('skills-wrapper', skills);
+        rotator.start(2500);
+    </script>
 
     <script src="btt.js"></script>
 </body>
