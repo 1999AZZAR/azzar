@@ -72,10 +72,10 @@ function displayProjects(projects) {
             <div class="service-card">
                 <p>${repo.description || 'No description available yet'}</p>
                 <ul>
-                    <li><i class="fas fa-tag"></i> Topics: ${topics}</li>
                     <li><i class="fas fa-calendar-alt"></i> Updated on: ${new Date(repo.updated_at).toLocaleDateString()}</li>
                     <li><i class="fas fa-code-branch"></i> Forks: ${repo.forks_count}</li>
                     <li><i class="fas fa-star"></i> Stars: ${repo.stargazers_count}</li>
+                    <li><i class="fas fa-tag"></i> Topics: ${topics}</li>
                 </ul>
             </div>
             ${repo.homepage ? `<div class="service-card"> <i class="fas fa-globe"></i> <a href="${repo.homepage}" target="_blank">Website</a></div>` : ''}
