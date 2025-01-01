@@ -2,42 +2,59 @@
 const skills = [
     // Core Software Development
     "Programming", "Python", "C++", "C#", "Rust", "TypeScript", "JavaScript",
-    "HTML", "CSS", "Git", "Version Control",
+    "HTML", "CSS", "Git", "Version Control", "Shell Scripting", "Perl",
+    "Ruby", "Go", "MATLAB", "Scala",
 
     // Web Technologies
-    "Web", "Full-stack", "Backend", "React.js", "Vue.js", "Angular",
-    "Tailwind CSS", "Bootstrap", "Flask", "Django", "GraphQL",
+    "Web", "Full-stack", "Backend", "Frontend", "React.js", "Vue.js",
+    "Angular", "Svelte", "Tailwind CSS", "Bootstrap", "Flask", "Django",
+    "GraphQL", "REST APIs", "Next.js", "Nuxt.js", "Express.js", "WebSockets",
+    "WordPress Development",
 
     // Infrastructure & DevOps
-    "DevOps", "Docker", "Kubernetes", "Linux", "Cloud Computing",
-    "AWS", "Azure", "Firebase", "Cloud Services",
+    "DevOps", "Docker", "Kubernetes", "Linux", "Unix", "Cloud Computing",
+    "AWS", "Azure", "Google Cloud Platform (GCP)", "Firebase", "Cloud Services",
+    "Terraform", "CI/CD", "Ansible", "Jenkins", "NGINX", "Apache",
 
     // Data & AI
-    "Machine Learning", "AI", "Data Science", "Deep Learning",
-    "TensorFlow", "Computer Vision", "Natural Language Processing",
-    "Big Data", "Hadoop", "Spark", "Voice Recognition",
+    "Machine Learning", "AI", "Data Science", "Deep Learning", "Data Analysis",
+    "TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy",
+    "Computer Vision", "Natural Language Processing", "Big Data",
+    "Hadoop", "Spark", "Voice Recognition", "Data Visualization",
+    "Tableau", "Power BI", "MATLAB Data Analysis",
 
     // IoT & Embedded
-    "IoT", "Microcontrollers", "Embedded Systems", "Arduino",
-    "Raspberry Pi", "Electronics", "Computer Hardware",
+    "IoT", "Microcontrollers", "Embedded Systems", "Arduino", "Raspberry Pi",
+    "ESP32", "FPGA", "VHDL", "Verilog", "Electronics", "Computer Hardware",
+    "PCB Design", "Sensor Integration", "Wireless Communication",
 
     // Database & Security
-    "Database Management", "SQL", "NoSQL", "Cybersecurity",
-    "Networking", "API Design",
+    "Database Management", "SQL", "NoSQL", "MongoDB", "PostgreSQL",
+    "MySQL", "Redis", "Elasticsearch", "Firebase Realtime Database",
+    "Cybersecurity", "Networking", "API Design", "Penetration Testing",
+    "Ethical Hacking", "Cryptography", "Identity Management",
 
     // Engineering & Design
-    "Robotics", "Control Systems", "UI/UX Design", "3D Printing",
-    "CAD Design", "Figma", "Prototyping", "Photography",
+    "Robotics", "Control Systems", "UI/UX Design", "3D Printing", "CAD Design",
+    "SolidWorks", "AutoCAD", "Figma", "Adobe XD", "Prototyping", "Photography",
+    "Animation", "Blender",
 
     // Project Management & Soft Skills
-    "Project Manager", "Technical Writing", "Agile Methodologies",
-    "SCRUM", "Leadership", "Team Management", "Creative Thinking",
-    "Problem Solving", "Critical Thinking",
+    "Project Management", "Technical Writing", "Agile Methodologies", "SCRUM",
+    "Kanban", "Leadership", "Team Management", "Creative Thinking",
+    "Problem Solving", "Critical Thinking", "Negotiation", "Conflict Resolution",
+    "Time Management", "Public Speaking", "Stakeholder Management",
 
     // Sustainable Tech
-    "Sustainability", "Renewable Energy", "Solar Panels",
-    "Power Management", "HVAC Systems", "Electric Vehicles",
-    "Smart Cities"
+    "Sustainability", "Renewable Energy", "Solar Panels", "Wind Energy",
+    "Power Management", "HVAC Systems", "Electric Vehicles", "Battery Storage",
+    "Energy Efficiency", "Smart Cities", "Green Building Technologies",
+
+    // Miscellaneous
+    "Blockchain", "Cryptocurrency", "Smart Contracts", "Quantum Computing",
+    "Game Development", "React Native",
+    "Chatbot Development", "Content Creation",
+    "SEO Optimization", "Digital Marketing"
 ];
 
 class SkillsRotator {
