@@ -1,42 +1,44 @@
 /* Root Level Variables for Theme */
-:root.one {
-    --primary-color: #222;
-    --secondary-color: #eee;
-    --tertiary-color: #333;
-    --quaternary-color: rgba(0, 0, 0, 0.6);
-    --quinary-color: #f5a623;
-    --senary-color: #222;
-    --septenary-color: #fff;
-    --octonary-color: rgba(0, 0, 0, 0.8);
-    --nonary-color: #3c3c3c;
-    --denary-color: #888;
+:root, :root.one {
+    /* Core colors - darker theme */
+    --primary-color: #1F2E2E;    /* Darkest - main background */
+    --secondary-color: #E0E6E6;  /* Light - main text color */
+    --tertiary-color: #2C4040;   /* Dark - container backgrounds */
+    --quaternary-color: #476565; /* Medium - borders and shadows */
+    --quinary-color: #96DFDF;    /* Bright - accent color */
+    --text-primary: #E0E6E6;     /* Light - main text */
+    --text-secondary: #96DFDF;   /* Bright - secondary text */
+    --text-muted: #7CB9B9;      /* Medium - muted text */
 
-    --gradient-primary: linear-gradient(135deg, #222 0%, #3c3c3c 100%);
-    --gradient-secondary: linear-gradient(135deg, #333 0%, #888 100%);
-    --gradient-accent: linear-gradient(45deg, #f5a623, #eee);
-    --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.05);
-    --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.08);
-    --shadow-lg: 0 10px 15px rgba(15, 23, 42, 0.1);
-    --shadow-xl: 0 20px 25px rgba(15, 23, 42, 0.12);
+    --gradient-primary: linear-gradient(135deg, #1F2E2E 0%, #476565 100%);
+    --gradient-secondary: linear-gradient(135deg, #2C4040 0%, #96DFDF 100%);
+    --gradient-accent: linear-gradient(45deg, #476565, #96DFDF);
+    --shadow-sm: 0 2px 4px rgba(31, 46, 46, 0.2);
+    --shadow-md: 0 4px 6px rgba(31, 46, 46, 0.3);
+    --shadow-lg: 0 10px 15px rgba(31, 46, 46, 0.4);
+    --shadow-xl: 0 20px 25px rgba(31, 46, 46, 0.5);
     --border-radius: 12px;
     --transition-base: all 0.3s ease;
 }
 
 :root.two {
-    --primary-color: #f5f5f5;
-    --secondary-color: #333;
-    --tertiary-color: #fff;
-    --quaternary-color: rgba(0, 0, 0, 0.1);
-    --quinary-color: #333;
-    --senary-color: #fff;
-    --septenary-color: #f5a623;
-    --octonary-color: rgba(255, 255, 255, 0.8);
-    --nonary-color: #fff;
-    --denary-color: #555;
+    /* Core colors - lighter theme */
+    --primary-color: #F5F7F7;    /* Lightest - main background */
+    --secondary-color: #2C4040;  /* Dark - main text color */
+    --tertiary-color: #E0E6E6;   /* Light - container backgrounds */
+    --quaternary-color: #A0C0C0; /* Medium - borders and shadows */
+    --quinary-color: #378080;    /* Dark accent - for contrast */
+    --text-primary: #2C4040;     /* Dark - main text */
+    --text-secondary: #378080;   /* Dark accent - secondary text */
+    --text-muted: #619999;      /* Medium - muted text */
 
-    --gradient-primary: linear-gradient(135deg, #f5f5f5 0%, #ddd 100%);
-    --gradient-secondary: linear-gradient(135deg, #333 0%, #555 100%);
-    --gradient-accent: linear-gradient(45deg, #f5a623, #fff);
+    --gradient-primary: linear-gradient(135deg, #F5F7F7 0%, #A0C0C0 100%);
+    --gradient-secondary: linear-gradient(135deg, #E0E6E6 0%, #378080 100%);
+    --gradient-accent: linear-gradient(45deg, #A0C0C0, #378080);
+    --shadow-sm: 0 2px 4px rgba(44, 64, 64, 0.1);
+    --shadow-md: 0 4px 6px rgba(44, 64, 64, 0.15);
+    --shadow-lg: 0 10px 15px rgba(44, 64, 64, 0.2);
+    --shadow-xl: 0 20px 25px rgba(44, 64, 64, 0.25);
 }
 
 html::-webkit-scrollbar {
@@ -50,7 +52,7 @@ html {
 /* General Styles */
 body {
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: var(--text-primary);
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -73,6 +75,7 @@ body {
     background: var(--tertiary-color);
     border-radius: 15px;
     box-shadow: 0 0 15px var(--quaternary-color);
+    color: var(--text-primary);
 }
 
 .button-list {
@@ -81,15 +84,13 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     padding: 1rem;
-    background-color: var(--septenary-color);
+    background-color: var(--tertiary-color);
     border-radius: 12px;
 }
 
 h1 {
     font-size: 2.5em;
-    background: var(--quinary-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-secondary);
     margin-bottom: 20px;
     padding-bottom: 10px;
     text-align: center!important;
@@ -110,10 +111,12 @@ h1::after {
 
 h2 {
     font-size: 2em;
+    color: var(--text-secondary);
 }
 
 h3 {
     font-size: 1.5em;
+    color: var(--text-secondary);
 }
 
 /* Buttons */
@@ -121,12 +124,12 @@ button {
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
-    background-color: var(--quinary-color);
-    color: var(--senary-color);
+    background-color: var(--quaternary-color);
+    color: var(--text-primary);
     border: none;
     border-radius: 25px;
-    box-shadow: 0 4px 6px var(--quaternary-color);
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
     margin: 10px;
     max-width: 400px;
     width: 70%;
@@ -134,8 +137,8 @@ button {
 }
 
 button:hover {
-    background-color: var(--nonary-color);
-    color: var(--quinary-color);
+    background-color: var(--quinary-color);
+    color: var(--primary-color); /* Ensure text is visible on hover */
     transform: scale(1.05);
 }
 
@@ -153,24 +156,23 @@ button:active {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    background-color: var(--octonary-color);
+    background-color: rgba(31, 46, 46, 0.9);
 }
 
 .modal-content {
-    overflow-y: auto;
     background-color: var(--tertiary-color);
     margin: 5% auto;
     padding: 20px;
     border-radius: 12px;
     width: 80%;
     max-width: 80vw;
-    box-shadow: 0 0 15px var(--quaternary-color);
-    color: var(--secondary-color);
+    box-shadow: var(--shadow-lg);
+    color: var(--text-primary);
     text-align: left;
 }
 
 .modal-content h2 {
-    color: var(--quinary-color);
+    color: var(--text-secondary);
 }
 
 @keyframes modalSlide {
@@ -179,7 +181,7 @@ button:active {
 }
 
 .close {
-    color: var(--denary-color);
+    color: var(--text-secondary);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -188,7 +190,7 @@ button:active {
 
 .close:hover,
 .close:focus {
-    color: var(--quinary-color);
+    color: var(--text-primary); /* More visible hover state */
     text-decoration: none;
     transform: rotate(90deg);
     cursor: pointer;
@@ -197,6 +199,7 @@ button:active {
 /* Code Blocks */
 pre {
     background: var(--primary-color);
+    color: var(--text-primary);
     padding: 15px;
     border-radius: 8px;
     overflow-x: auto;
@@ -210,7 +213,7 @@ table {
     border-spacing: 0 1rem;
     margin: 0;
     padding: 20px;
-    background-color: var(--nonary-color);
+    background-color: var(--tertiary-color);
     border-radius: 15px;
 }
 
@@ -222,7 +225,7 @@ th, td {
 
 th {
     background: var(--gradient-primary);
-    color: var(--septenary-color);
+    color: var(--text-primary);
     font-weight: 600;
     position: relative;
 }
@@ -238,8 +241,8 @@ th:last-child {
 }
 
 td {
-    background-color: var(--tertiary-color);
-    border-top: 1px solid rgba(77, 124, 255, 0.1);
+    background-color: var(--quaternary-color);
+    color: var(--text-primary);
 }
 
 tr {
@@ -249,14 +252,16 @@ tr {
 tr:hover td {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
-    background-color: var(--nonary-color);
+    background-color: var(--quaternary-color); /* Less dramatic color change */
+    color: var(--text-primary); /* Maintain text contrast */
 }
+
 /* Footer */
 footer {
     margin-top: 40px;
     text-align: center;
     font-size: 0.9em;
-    color: var(--denary-color);
+    color: var(--text-muted);
 }
 
 /* Lists */
@@ -274,18 +279,19 @@ ul {
     padding-left: 1.5rem;
     position: relative;
     margin: 0.5rem 0;
+    color: var(--text-primary);
 }
 
 .modal-content ul li::before {
     content: "✨";
     position: absolute;
     left: 0;
-    color: var(--quinary-color);
+    color: var(--text-secondary);
 }
 
 /* Links */
 a {
-    color: var(--quinary-color);
+    color: var(--text-secondary);
     text-decoration: none;
     transition: var(--transition-base);
     position: relative;
@@ -309,21 +315,8 @@ a:hover::after {
     transform-origin: left;
 }
 
-/* Sections */
-.script-section {
-    margin-bottom: 20px;
-    padding: 20px;
-    background: var(--denary-color);
-    border-radius: 20px;
-    box-shadow: inset 0 0 10px var(--quaternary-color);
-}
-
-/* Theme Switcher Wrapper */
-.theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+a:hover {
+    color: var(--quinary-color);
 }
 
 /* Theme Switcher */
@@ -337,7 +330,7 @@ a:hover::after {
 .theme-switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 70px;
     height: 34px;
 }
 
@@ -366,7 +359,7 @@ a:hover::after {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: var(--septenary-color);
+    background-color: var(--text-primary);
     transition: var(--transition-base);
     border-radius: 50%;
 }
@@ -379,10 +372,77 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Text Next to Switch */
 .theme-switch-wrapper span {
-    color: var(--secondary-color);
+    color: var(--text-primary);
     font-size: 1em;
+    margin-left: 10px;
+}
+
+/* Sections */
+.script-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: var(--tertiary-color);
+    border-radius: 20px;
+    box-shadow: inset 0 0 10px var(--quaternary-color);
+    color: var(--text-primary);
+}
+
+.content-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: var(--tertiary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+}
+
+.info-section {
+    background: var(--quaternary-color);
+    color: var(--text-primary);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.highlight-section {
+    background: var(--gradient-accent);
+    color: var(--text-primary);
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-section {
+    background: var(--tertiary-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+}
+
+.card-section:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    /* Remove any background color change on hover */
+}
+
+.hero-section {
+    background: var(--gradient-primary);
+    color: var(--text-primary);
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
 }
 
 /* Back to Top Button */
@@ -395,15 +455,14 @@ input:checked + .slider:before {
     outline: none;
     padding: 0.75rem 1.5rem;
     background: var(--gradient-secondary);
+    color: var(--text-primary);
     border: none;
     border-radius: 25px;
     font-size: 1rem;
     cursor: pointer;
     opacity: 0;
-    transition: var(
-    --transition-base);
-    box-shadow: var(
-    --shadow-md);
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-md);
 }
 
 #backToTopBtn img {
@@ -416,6 +475,8 @@ input:checked + .slider:before {
 #backToTopBtn:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
+    background: var(--quaternary-color); /* Less dramatic color change */
+    color: var(--text-primary); /* Maintain text contrast */
 }
 
 #backToTopBtn.show {
@@ -428,8 +489,22 @@ input:checked + .slider:before {
     opacity: 0;
 }
 
+/* Responsive Design */
 /* Small Screens (up to 600px wide) */
 @media (max-width: 600px) {
+    .script-section,
+    .content-section,
+    .info-section,
+    .highlight-section,
+    .card-section,
+    .hero-section {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .features-section {
+        grid-template-columns: 1fr;
+    }
     .container {
         width: 90%;
         margin: 20px auto;

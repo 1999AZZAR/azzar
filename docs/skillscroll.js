@@ -14,19 +14,26 @@ const skills = [
     // Infrastructure & DevOps
     "DevOps", "Docker", "Kubernetes", "Linux", "Unix", "Cloud Computing",
     "AWS", "Azure", "Google Cloud Platform (GCP)", "Firebase", "Cloud Services",
-    "Terraform", "CI/CD", "Ansible", "Jenkins", "NGINX", "Apache",
+    "Terraform", "CI/CD", "Ansible", "Jenkins", "NGINX", "Apache", "Flask",
 
     // Data & AI
     "Machine Learning", "AI", "Data Science", "Deep Learning", "Data Analysis",
     "TensorFlow", "PyTorch", "Scikit-learn", "Pandas", "NumPy",
     "Computer Vision", "Natural Language Processing", "Big Data",
     "Hadoop", "Spark", "Voice Recognition", "Data Visualization",
-    "Tableau", "Power BI", "MATLAB Data Analysis",
+    "Tableau", "Power BI", "MATLAB Data Analysis", "Data Warehousing",
+
+    // Business Systems & ERP
+    "ERP", "Odoo", "SAP", "Business Process Management",
+    "Customer Relationship Management (CRM)", "Inventory Management",
+    "Financial Accounting", "Human Resource Management (HRM)",
+    "Enterprise Integration", "Workflow Automation",
 
     // IoT & Embedded
     "IoT", "Microcontrollers", "Embedded Systems", "Arduino", "Raspberry Pi",
     "ESP32", "FPGA", "VHDL", "Verilog", "Electronics", "Computer Hardware",
-    "PCB Design", "Sensor Integration", "Wireless Communication",
+    "PCB Design", "Sensor Integration", "Wireless Communication", "Custom Library",
+    "Wokwi", "Tinkercad", "Adafruit IO",
 
     // Database & Security
     "Database Management", "SQL", "NoSQL", "MongoDB", "PostgreSQL",
@@ -36,7 +43,7 @@ const skills = [
 
     // Engineering & Design
     "Robotics", "Control Systems", "UI/UX Design", "3D Printing", "CAD Design",
-    "SolidWorks", "AutoCAD", "Figma", "Adobe XD", "Prototyping", "Photography",
+    "SolidWorks", "AutoCAD", "Figma", "Prototyping", "Photography",
     "Animation", "Blender",
 
     // Project Management & Soft Skills
