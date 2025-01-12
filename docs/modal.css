@@ -9,7 +9,6 @@
     --text-primary: #E0E6E6;     /* Light - main text */
     --text-secondary: #96DFDF;   /* Bright - secondary text */
     --text-muted: #7CB9B9;      /* Medium - muted text */
-
     --gradient-primary: linear-gradient(135deg, #1F2E2E 0%, #476565 100%);
     --gradient-secondary: linear-gradient(135deg, #2C4040 0%, #96DFDF 100%);
     --gradient-accent: linear-gradient(45deg, #476565, #96DFDF);
@@ -17,7 +16,7 @@
     --shadow-md: 0 4px 6px rgba(31, 46, 46, 0.3);
     --shadow-lg: 0 10px 15px rgba(31, 46, 46, 0.4);
     --shadow-xl: 0 20px 25px rgba(31, 46, 46, 0.5);
-    --border-radius: 12px;
+    --border-radius: 13px;
     --transition-base: all 0.3s ease;
 }
 
@@ -70,8 +69,9 @@ body {
 .container {
     display: block;
     width: 80%;
+    height: -webkit-fill-available;
     margin: 5% auto;
-    padding: 30px;
+    padding: 35px;
     background: var(--tertiary-color);
     border-radius: 15px;
     box-shadow: 0 0 15px var(--quaternary-color);
@@ -89,9 +89,9 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2.7em;
     color: var(--text-secondary);
-    margin-bottom: 20px;
+    margin: 0px;
     padding-bottom: 10px;
     text-align: center!important;
     position: relative;
@@ -162,7 +162,7 @@ button:active {
 .modal-content {
     background-color: var(--tertiary-color);
     margin: 5% auto;
-    padding: 20px;
+    padding: 5%;
     border-radius: 12px;
     width: 80%;
     max-width: 80vw;
@@ -208,57 +208,64 @@ pre {
 
 /* Tables */
 table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 1rem;
-    margin: 0;
-    padding: 20px;
-    background-color: var(--tertiary-color);
-    border-radius: 15px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--tertiary-color);
+  border-radius: 15px;
 }
 
 th, td {
-    padding: 1.5rem;
-    text-align: left;
-    transition: var(--transition-base);
+  padding: 1.5rem;
+  text-align: left;
+  transition: var(--transition-base);
 }
 
 th {
-    background: var(--gradient-primary);
-    color: var(--text-primary);
-    font-weight: 600;
-    position: relative;
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  font-weight: 600;
+  position: relative;
 }
 
-th:first-child {
-    border-top-left-radius: var(--border-radius);
-    border-bottom-left-radius: var(--border-radius);
+/* Apply border-radius only to the first and last cells in each row */
+tr:first-child th:first-child {
+  border-top-left-radius: var(--border-radius);
 }
 
-th:last-child {
-    border-top-right-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
+tr:first-child th:last-child {
+  border-top-right-radius: var(--border-radius);
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius: var(--border-radius);
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: var(--border-radius);
 }
 
 td {
-    background-color: var(--quaternary-color);
-    color: var(--text-primary);
+  background-color: var(--quaternary-color);
+  color: var(--text-primary);
 }
 
 tr {
-    transition: var(--transition-base);
+  transition: var(--transition-base);
 }
 
 tr:hover td {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-    background-color: var(--quaternary-color); /* Less dramatic color change */
-    color: var(--text-primary); /* Maintain text contrast */
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  background-color: var(--quaternary-color); /* Less dramatic color change */
+  color: var(--text-primary); /* Maintain text contrast */
 }
 
 /* Footer */
 footer {
-    margin-top: 40px;
+    margin: 20px 0 0;
     text-align: center;
     font-size: 0.9em;
     color: var(--text-muted);
@@ -269,6 +276,10 @@ ul {
     list-style-type: none;
     margin: 10px 0;
     padding-left: 25px;
+}
+
+.modal-content h1 {
+    margin: 20px;
 }
 
 .modal-content ul {
@@ -324,7 +335,6 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
 }
 
 .theme-switch {
@@ -382,9 +392,9 @@ input:checked + .slider:before {
 .script-section {
     display: flex;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 5px 10px;
     background: var(--tertiary-color);
-    border-radius: 20px;
+    border-radius: 30px;
     box-shadow: inset 0 0 10px var(--quaternary-color);
     color: var(--text-primary);
     justify-content: space-evenly;
@@ -539,8 +549,7 @@ input:checked + .slider:before {
 @media (max-width: 900px) {
     .container {
         width: 85%;
-        margin: 1% auto;
-        padding: 25px;
+        margin: 3% auto;
     }
 
     h1 {
