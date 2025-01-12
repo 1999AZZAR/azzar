@@ -1,35 +1,62 @@
-// details page js
+// Modal stack to track opened modals
+const modalStack = [];
 
-// Get all buttons that open modals
-const openModalButtons = document.querySelectorAll('.openModal');
-
-// Add event listeners to open modals
-openModalButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const modalId = this.getAttribute('data-modal');
-        const modal = document.getElementById(modalId);
+// Function to open a modal
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        // Show the modal
         modal.style.display = 'block';
-    });
+
+        // Add the modal to the stack
+        modalStack.push(modal);
+
+        // Ensure the modal is on top
+        modal.style.zIndex = 1000 + modalStack.length;
+
+        // Add event listener for closing this modal by its close button
+        const closeButton = modal.querySelector('.close');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => closeModal(modal));
+        }
+    }
+}
+
+// Function to close a specific modal
+function closeModal(modal) {
+    if (!modal) return;
+
+    // Hide the modal
+    modal.style.display = 'none';
+
+    // Remove the modal from the stack
+    const index = modalStack.indexOf(modal);
+    if (index > -1) {
+        modalStack.splice(index, 1);
+    }
+}
+
+// Add global event listeners to open modals
+document.addEventListener('click', function (e) {
+    if (e.target.matches('.openModal')) {
+        const modalId = e.target.getAttribute('data-modal');
+        openModal(modalId);
+    }
 });
 
-// Get all elements that close modals
-const closeButtons = document.querySelectorAll('.close');
-
-// Add event listeners to close modals only on clicking the close buttons
-closeButtons.forEach(button => {
-    button.addEventListener('click', function() {
-        const modal = this.closest('.modal');
-        modal.style.display = 'none';
-    });
+// Add global event listener to close modals by clicking outside
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('modal') && e.target === modalStack[modalStack.length - 1]) {
+        closeModal(e.target);
+    }
 });
 
-// Function to set a given theme/color-scheme
+// Theme functionality remains unchanged
 function setTheme(themeName) {
     localStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
 }
 
-// Function to toggle between theme one and two
 function toggleTheme() {
     if (localStorage.getItem('theme') === 'two') {
         setTheme('one');
@@ -50,6 +77,4 @@ function toggleTheme() {
 })();
 
 // Event listener for the theme toggle
-document.getElementById('theme-toggle').addEventListener('change', function() {
-    toggleTheme();
-});
+document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
