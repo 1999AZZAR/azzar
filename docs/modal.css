@@ -380,12 +380,14 @@ input:checked + .slider:before {
 
 /* Sections */
 .script-section {
+    display: flex;
     margin-bottom: 20px;
     padding: 20px;
     background: var(--tertiary-color);
     border-radius: 20px;
     box-shadow: inset 0 0 10px var(--quaternary-color);
     color: var(--text-primary);
+    justify-content: space-evenly;
 }
 
 .content-section {
