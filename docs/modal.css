@@ -210,11 +210,12 @@ pre {
 table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0 10px;
+  border-spacing: 0 5px;
   margin: 0;
   padding: 20px;
   background-color: var(--tertiary-color);
   border-radius: 15px;
+  \: justify;
 }
 
 th, td {
@@ -392,12 +393,13 @@ input:checked + .slider:before {
 .script-section {
     display: flex;
     margin-bottom: 20px;
-    padding: 5px 10px;
+    padding: 0 5px;
     background: var(--tertiary-color);
     border-radius: 30px;
-    box-shadow: inset 0 0 10px var(--quaternary-color);
+    box-shadow: 0 0 10px var(--quaternary-color);
     color: var(--text-primary);
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    overflow: scroll;
 }
 
 .content-section {
